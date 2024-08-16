@@ -240,7 +240,7 @@
 
 						// Create an array of typing text
 						const typingTexts = [
-						'Full Stack Software Developer & Business Development Executive ',
+						'Full Stack Software Developer\n& Business Development Executive at Startup Company ',
 						];
 
 						// Create a function to display the typing animation for a given text
@@ -248,7 +248,12 @@
 						// Loop through each character and add it to the element
 						for (let i = 0; i < text.length; i++) {
 							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
+								 // If the character is a newline, add a <br> element
+                                                    if (text[i] === '\n') {
+				                    typingAnimationElement.innerHTML += '<br>';
+				                } else {
+				                    typingAnimationElement.textContent += text[i];
+				                }
 							}, i * 200); // Increase the delay to slow down the typing animation
 						}
 
